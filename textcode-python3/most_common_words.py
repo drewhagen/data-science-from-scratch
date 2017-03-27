@@ -9,7 +9,7 @@ if __name__ == "__main__":
         num_words = int(sys.argv[1])
     except:
         print("usage: most_common_words.py num_words")
-        sys.exit(1)   # non-zero exit code indicates error
+        sys.exit(1)   # non-zero exit textcode indicates error
 
     counter = Counter(word.lower()
                       for line in sys.stdin

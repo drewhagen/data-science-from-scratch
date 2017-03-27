@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 #                        #
 # FINDING KEY CONNECTORS #
 #                        #
-##########################
+########################## Making a list of dictionaries
 
 users = [
     { "id": 0, "name": "Hero" },
@@ -135,6 +135,8 @@ salaries_and_tenures = [(83000, 8.7), (88000, 8.1),
                         (60000, 2.5), (83000, 10),
                         (48000, 1.9), (63000, 4.2)]
 
+
+#makes a chart for salaries by tenure
 def make_chart_salaries_by_tenure():
     tenures = [tenure for salary, tenure in salaries_and_tenures]
     salaries = [salary for salary, tenure in salaries_and_tenures]
@@ -147,14 +149,17 @@ def make_chart_salaries_by_tenure():
 # values are the salaries for each tenure
 salary_by_tenure = defaultdict(list)
 
+
 for salary, tenure in salaries_and_tenures:
     salary_by_tenure[tenure].append(salary)
 
+#
 average_salary_by_tenure = {
     tenure : sum(salaries) / len(salaries)
     for tenure, salaries in salary_by_tenure.items()
 }
 
+#returns tenure score / amount of years served for tenure
 def tenure_bucket(tenure):
     if tenure < 2: return "less than two"
     elif tenure < 5: return "between two and five"
